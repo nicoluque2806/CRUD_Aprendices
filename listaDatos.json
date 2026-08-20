@@ -1,0 +1,14 @@
+[{
+    "nombre": "Nicolas",
+    "apellido": "Luque",
+    "edad": 18,
+    "correo": "Nico123@example.com",
+    "avatar": "imagenes/Nico.jpg"
+}, 
+{
+    "nombre": "Dilan",
+    "apellido": "Putito",
+    "edad": 45,
+    "correo": "Dilan123@example.com",
+    "avatar": "imagenes/Dilan.jpg"
+}]

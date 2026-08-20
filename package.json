@@ -1,5 +1,26 @@
 {
+  "name": "crud_aprendices",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/nicoluque2806/CRUD_Aprendices#readme",
+  "bugs": {
+    "url": "https://github.com/nicoluque2806/CRUD_Aprendices/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicoluque2806/CRUD_Aprendices.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node --watch app.js",
+    "produccion": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
+    "dotenv": "^17.4.2",
     "express": "^5.2.1"
   }
 }
