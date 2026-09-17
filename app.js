@@ -2,12 +2,19 @@ const express = require('express');
 const registroMiddleware = require('./middleware/registroMiddleware')
 const manejadorErrores = require('./middleware/manejadorErrores')
 const autenticarToken = require('./middleware/autenticarToken')
+
+const registroMiddleware = require('./src/middleware/registroMiddleware')
+const manejadorErrores = require("./src/middleware/manejadorErrores")
+const autenticarToken = require('./src/middleware/autenticarToken')
+const jwt = require('jsonwebtoken');
+
 const app = express();
 require('dotenv/config');
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
     app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:true}))
 
 const multer = require('multer')
 const almacenamiento = multer.diskStorage({
@@ -15,6 +22,8 @@ const almacenamiento = multer.diskStorage({
     filename: {}
 })
 app.use(registroMiddleware)
+app.use(autenticarToken)
+
 
 app.use ((req, res, next) => {
     const tiempoMilisegundos = Date.now()
@@ -270,6 +279,7 @@ app.delete('/api/aprendices/:dni', (req, res) => {
     );
 });
 
+
 app.get("/error", (req, res, next) => {
     next(new Error ("Error provocado"))
 })
@@ -277,6 +287,40 @@ app.get("/error", (req, res, next) => {
 app.get("/rutaProtegida", autenticarToken , (req, res) => {
     res.json({mensaje: "Este es una ruta protegida"})
 })
+
+//error para provocar un error
+app.get("/error", (req, res, next) => {
+    next(new Error("Error provocado"));
+});
+
+//endpoint con ruta protegida
+app.get("/rutaProtegida", (req, res) => {
+    res.json({mensaje: "Este es una ruta protegida"})
+})
+
+//endpoint inicio de sesion para generar token
+app.post("/login", (req, res) => {
+    const {usuario, clave} = req.body
+    //simular bd
+    const usuariobd = {
+        "usuario": "Paula",
+        "clave": "123456"
+    }
+    //validar datos del usuario
+    if (usuarios === usuariobd.usuario || clave !== usuariobd.clave) {
+        res.json({mensaje: "Usuario y/o clave incorrectos."})
+    }
+    //crear token
+    const token = jwtoken.sing(
+        //pasamos datos del usuario
+        {user: usuario},
+        process.env.JWT_SECRET,
+        {expiresIn: "1h"}
+    )
+    res.json({token})
+})
+
+//error 
 
 app.use(manejadorErrores)
 
