@@ -1,13 +1,26 @@
-const {Router} = require("express")
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const router = express.Router();
 
-const enrutador = Router()
+router.post('/login', (req, res) => {
+    const { usuario, clave } = req.body;
 
-const iniciarSesion = require ("../controllers/autenticarController")
+    const usuariobd = {
+        usuario: 'Paula',
+        clave: '123456'
+    };
 
-enrutador.get("/login", iniciarSesion)
+    if (usuario !== usuariobd.usuario || clave !== usuariobd.clave) {
+        return res.status(401).json({ mensaje: 'Usuario y/o clave incorrectos.' });
+    }
 
-enrutador.post("/registro", (res, req) => {
-    res.json({mensaje:"ruta registro"})
-})
+    const token = jwt.sign(
+        { user: usuario },
+        process.env.JWT_SECRET || 'secreto_super_seguro',
+        { expiresIn: '1h' }
+    );
 
-module.exports = enrutador
+    res.json({ token });
+});
+
+module.exports = router;

@@ -18,3 +18,5 @@ const iniciarSesion = async (req, res) => {
 
     res.json({ token }) 
 }
+
+module.exports = iniciarSesion
