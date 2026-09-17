@@ -1,14 +1,48 @@
-[{
-    "nombre": "Nicolas",
-    "apellido": "Luque",
-    "edad": 18,
-    "correo": "Nico123@example.com",
-    "avatar": "imagenes/Nico.jpg"
-}, 
-{
-    "nombre": "Dilan",
-    "apellido": "Putito",
-    "edad": 45,
-    "correo": "Dilan123@example.com",
-    "avatar": "imagenes/Dilan.jpg"
-}]
+[
+  {
+    "dni": 1,
+    "nombre": "Juan",
+    "apellidos": "Henao",
+    "edad": 17,
+    "correo": "henao@gmail.com",
+    "imgperfil": "url"
+  },
+  {
+    "dni": 2,
+    "nombre": "Juan",
+    "correo": "henao@gmail.com",
+    "edad": 17,
+    "imgperfil": "url"
+  },
+  {
+    "dni": 3,
+    "nombre": "Juan",
+    "correo": "henao@gmail.com",
+    "edad": 17,
+    "imgperfil": "url"
+  },
+  {
+    "dni": 4,
+    "nombre": "Juan",
+    "apellidos": "Henao",
+    "edad": 17,
+    "correo": "henao@gmail.com",
+    "imgperfil": "url"
+  },
+  {
+    "dni": 5,
+    "nombre": "Juan",
+    "apellidos": "Henao",
+    "edad": 17,
+    "correo": "henao@gmail.com",
+    "imgperfil": "url"
+  },
+  {
+    "dni": 6,
+    "nombre": "Juan",
+    "apellidos": "Henao",
+    "edad": 17,
+    "correo": "henao@gmail.com",
+    "imgperfil": "url"
+  }
+]
